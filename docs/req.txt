@@ -1,0 +1,21 @@
+Requirements
+====
+
+Functional:
+
+*   Start timing
+*   Pause timing
+*   Resume timing
+*   Name a time (task)
+*   Save a named time (save task)
+*   Store 3 most recent tasks in chronological order (top to bottom)
+
+Non-functional:
+
+*   Time precision: +/- 59 seconds (1 minute)
+*   Task name can be alphanumeric
+*   Maximum time for task is 99 hours, 99 minutes
+
+Misc.
+
+*   Exiting during a running task will delete it.
