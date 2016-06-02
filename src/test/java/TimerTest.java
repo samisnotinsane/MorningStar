@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.java.timer.STimer;
 
 import static javafx.application.Application.launch;
 
@@ -29,7 +30,8 @@ public class TimerTest extends Application {
         primaryStage.show();
 
 
-
+        STimer t = new STimer();
+        t.startTimer();
     }
 
     public static void main(String[] args) {
