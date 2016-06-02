@@ -6,6 +6,7 @@ Functional:
 *   Start timing
 *   Pause timing
 *   Resume timing
+*   Reset timer
 *   Name a time (task)
 *   Save a named time (save task)
 *   Store 3 most recent tasks in chronological order (top to bottom)

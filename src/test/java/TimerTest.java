@@ -28,6 +28,8 @@ public class TimerTest extends Application {
         primaryStage.setScene(starClockScene);
         primaryStage.show();
 
+
+
     }
 
     public static void main(String[] args) {

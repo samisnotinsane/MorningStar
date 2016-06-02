@@ -21,7 +21,17 @@ public class StarClockController implements Initializable{
 
     // play and pause button controller
     public static void onClickPpBtn() throws Exception{
-        throw new Exception("Feature not yet implemented!");
+//        throw new Exception("Feature not yet implemented!");
+        System.out.println("Starting timer");
+
+        boolean isTimerRunning = false;
+
+        if(!isTimerRunning) {
+            // start timer
+        } else {
+            // timer already running, pause it
+        }
+
     }
 
     @Override
