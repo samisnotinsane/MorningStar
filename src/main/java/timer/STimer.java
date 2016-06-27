@@ -3,11 +3,13 @@ package main.java.timer;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Modified implementation of Class created by KEV on:
  * http://stackoverflow.com/questions/9355303/javafx-stopwatch-timer.
  */
+
 public class STimer extends Thread {
     private Thread thread = null;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss:S");
@@ -34,6 +36,41 @@ public class STimer extends Thread {
             thread.interrupt();
         }
         this.time = time;
+
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+        split = simpleDateFormat.format(new Date(time)).split(":");
+        min.set(split[0]);
+        sec.set(split[1]);
+
+        if (split[2].length() == 1) {
+            split[2] = "0" + split[2];
+        }
+        millis.set(split[2].substring(0, 2));
+
+        sspTime.set(min.get() + ":" + sec.get() + ":" + millis.get());
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public SimpleStringProperty getSspTime() {
+        return sspTime;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (!thread.isInterrupted()) {
+                setTime(time);
+                sleep(10);
+                time = time + 10;
+            }
+        } catch (Exception e) {
+        }
 
     }
 }

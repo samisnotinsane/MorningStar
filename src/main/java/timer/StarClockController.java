@@ -1,5 +1,7 @@
 package main.java.timer;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +16,8 @@ import java.util.ResourceBundle;
  */
 
 public class StarClockController implements Initializable {
-    @FXML private Label txtTimer;
+    @FXML private Label lblTime; // time label
+    STimer sTimer;
     private String INITIAL_TIMER_VALUE = "00:00";
     private boolean isTimerRunning = false; // timer
 
@@ -24,9 +27,10 @@ public class StarClockController implements Initializable {
     }
 
     // play and pause button controller
-    public static void onClickPpBtn() throws Exception{
+    public void onClickPpBtn() throws Exception{
 //        throw new Exception("Feature not yet implemented!");
-        System.out.println("Starting timer");
+        System.out.println("Starting/pausing timer");
+        sTimer.startTimer(sTimer.getTime());
 
 //        isTimerRunning = false;
 //
@@ -38,8 +42,26 @@ public class StarClockController implements Initializable {
 
     }
 
+    // stop timer and reset
+    public void onClickStopReset() throws Exception {
+        System.out.println("Stopping/resetting timer");
+        sTimer.stopTimer(0);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtTimer.setText(INITIAL_TIMER_VALUE);
+        System.out.println("Initialising");
+        lblTime.setText(INITIAL_TIMER_VALUE);
+        sTimer = new STimer();
+        lblTime = new Label(sTimer.getSspTime().get());
+        sTimer.getSspTime().addListener(new InvalidationListener() {
+
+            @Override
+            public void invalidated(Observable observable) {
+                lblTime.setText(sTimer.getSspTime().get());
+                System.out.println(sTimer.getSspTime().get());
+            }
+        });
+
     }
 }

@@ -31,7 +31,7 @@
              <Insets left="125.0" />
            </VBox.margin>
        </Button>
-       <Label fx:id="txtTimer" alignment="CENTER" prefHeight="59.0" prefWidth="290.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 65;" text="">
+       <Label fx:id="lblTime" alignment="CENTER" prefHeight="59.0" prefWidth="290.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 65;" text="">
            <font>
              <Font name="Avenir Next Regular" size="24.0" />
            </font>
@@ -39,17 +39,27 @@
              <Insets />
            </VBox.margin>
        </Label>
-       <Button fx:id="btnPP" mnemonicParsing="false" style="-fx-background-color: transparent">
-           <graphic>
-               <ImageView fitHeight="21.0" fitWidth="22.0">
-                  <image>
-                      <Image url="@../resources/icons/play-button.png" />
-                  </image>
-               </ImageView>
-           </graphic>
-           <VBox.margin>
-             <Insets left="125.0" />
-           </VBox.margin>
-       </Button>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+             <Button fx:id="btnPP" mnemonicParsing="false" onAction="#onClickPpBtn" style="-fx-background-color: transparent">
+                 <graphic>
+                     <ImageView fitHeight="21.0" fitWidth="22.0">
+                        <image>
+                            <Image url="@../resources/icons/play-button.png" />
+                        </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
+             <Button fx:id="btnStopReset" mnemonicParsing="false" onAction="#onClickStopReset" style="-fx-background-color: transparent">
+                 <graphic>
+                     <ImageView fitHeight="21.0" fitWidth="22.0">
+                         <image>
+                             <Image url="@../resources/icons/stop-button.png" />
+                         </image>
+                     </ImageView>
+                 </graphic>
+             </Button>
+         </children>
+      </HBox>
    </children>
 </VBox>

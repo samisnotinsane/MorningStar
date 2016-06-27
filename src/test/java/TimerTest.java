@@ -31,7 +31,7 @@ public class TimerTest extends Application {
 
 
         STimer t = new STimer();
-        t.startTimer();
+//        t.startTimer();
     }
 
     public static void main(String[] args) {
